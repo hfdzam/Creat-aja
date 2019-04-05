@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+class segi{
+protected:
+	double panjang, lebar;
+public:
+	void set (double a, double t){
+		panjang=a; lebar=t;
+	}
+	void menu(){
+		cout<<"========SELAMAT DATANG========"<<endl;
+		cout<<"1. Luas Persegi Panjang"<<endl;
+		cout<<"2. Luas Lingkaran"<<endl;
+		cout<<"Masukkan Pilihan : ";
+	}
+};
+
+class cetak{
+public:
+	void output (double i){
+		cout << i << endl;
+	}
+};
+
+class Persegi: public segi, public cetak{
+public:
+	double hit (){
+		return (panjang*lebar);
+	}
+};
+
+class Lingkaran: public segi, public cetak{
+public:
+	double hit (){
+	return (panjang*panjang*22/7);
+	}
+};
+
+int main (){
+awal:
+	segi menu;
+	int pilihan;
+	Persegi segi4;
+	Lingkaran segi3;
+	menu.menu();
+	cin>>pilihan;
+	if(pilihan==1){
+		double p,t;
+		cout<<"panjang : ";cin>>p;
+		cout<<"Lebar   : ";cin>>t;
+		segi4.set (p,t);
+		cout<<"Luas persegi  : " ;
+		segi4.output (segi4.hit());
+		cout<<"Lagi ?(y/n) : ";
+		char opsi;cin>>opsi;
+		if(opsi=='y'||opsi=='Y'){
+			system("CLS");
+			goto awal;
+		}
+		else cout<<"TERIMA KASIH"<<endl;
+	}
+	else if(pilihan==2){
+		double a;
+		cout<<"Jari-Jari : ";cin>>a;
+		segi3.set (a,a);
+		cout<<"Luas Lingkaran : ";
+		segi3.output (segi3.hit());
+		cout<<"Lagi ?(y/n) : ";
+		char opsi;cin>>opsi;
+		if(opsi=='y'||opsi=='Y'){
+			system("CLS");
+			goto awal;
+		}
+		else cout<<"TERIMA KASIH"<<endl;
+	}
+	else cout<<"TERIMA KASIH"<<endl;
+}
