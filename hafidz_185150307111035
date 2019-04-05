@@ -42,7 +42,7 @@ awal:
 	segi menu;
 	int pilihan;
 	Persegi segi4;
-	Lingkaran segi3;
+	Lingkaran lingk;
 	menu.menu();
 	cin>>pilihan;
 	if(pilihan==1){
@@ -63,9 +63,9 @@ awal:
 	else if(pilihan==2){
 		double a;
 		cout<<"Jari-Jari : ";cin>>a;
-		segi3.set (a,a);
+		lingk.set (a,a);
 		cout<<"Luas Lingkaran : ";
-		segi3.output (segi3.hit());
+		lingk.output (lingk.hit());
 		cout<<"Lagi ?(y/n) : ";
 		char opsi;cin>>opsi;
 		if(opsi=='y'||opsi=='Y'){
